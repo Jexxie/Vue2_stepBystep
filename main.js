@@ -19,3 +19,7 @@ new Vue({
     }
   }
 });
+
+new Vue({
+  el: "#root"
+});
