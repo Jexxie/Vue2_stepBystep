@@ -19,11 +19,15 @@ Vue.component("v-modal", {
         </div>
       </div>
   `
+
 });
 
 new Vue({
   el: "#root",
   data: {
-    showModal: false
+    couponApplied: false
+  },
+  created() {
+    Event.$on("applied", () => alert("Handling it!"));
   }
 });
