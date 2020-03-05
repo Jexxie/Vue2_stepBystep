@@ -13,9 +13,16 @@
     </style>
   </head>
   <body>
-    <div id="root" class="container">
-      <coupon></coupon>
-      <h1 v-if="couponApplied">You used a coupon!</h1>
+
+    <t id="root" class="container">
+      <v-modal>
+        <template v-slot:header>标题</template>
+        这里是主要内容
+        <template v-slot:footer>
+          <a class="button is-primary">提交</a>
+          <a class="button">取消</a>
+        </template>
+      </v-modal>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
