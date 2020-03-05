@@ -13,28 +13,18 @@
     </style>
   </head>
   <body>
-    <div id="root" class="container">
-      <v-modal @close-modal="showModal = false" v-if="showModal">
-        <p>我是文本</p>
+    <t id="root" class="container">
+      <v-modal>
+        <template v-slot:header>标题</template>
+        这里是主要内容
+        <template v-slot:footer>
+          <a class="button is-primary">提交</a>
+          <a class="button">取消</a>
+        </template>
       </v-modal>
-
-      <button @click="showModal = true">点击</button>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="main.js"></script>
   </body>
 </html>
-
-<!-- 
-<div class="modal is-active">
-  <div class="modal-background"></div>
-  <div class="modal-content">
-    <div class="box">
-      <p>
-        这是一个自定义modal,这是一个自定义modal,这是一个自定义modal,这是一个自定义modal,
-      </p>
-    </div>
-  </div>
-  <button class="modal-close is-large" aria-label="close"></button>
-</div> -->
