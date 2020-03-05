@@ -13,8 +13,20 @@
 
 <body>
   <div id="root">
-    <h1 :class="this.className ? 'color-blue' : 'color-red'">H11111</h1>
-    <button @click="toggleClass" :title="title">Toggle</button>
+    <h2>All Tasks</h2>
+
+    <ul>
+      <li v-for="task in tasks" v-text="task.description"></li>
+    </ul>
+
+    <h2>Incompleted Tasks</h2>
+
+    <ul>
+      <li v-for="task in incompleteTasks">
+        {{task.description}}
+        <input type="checkbox" :value="task.completed" v-model="task.completed"></input>
+      </li>
+    </ul>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -23,12 +35,23 @@
     var app = new Vue({
       el: "#root",
       data: {
-        title: "通过js控制标题h1颜色",
-        className: true
+        tasks: [
+          { description: "Go to the store", completed: true },
+
+          { description: "Finish screencast", completed: false },
+
+          { description: "Make donation", completed: false },
+
+          { description: "Clear inbox", completed: false },
+
+          { description: "Make dinner", completed: false },
+
+          { description: "Clean room", completed: true }
+        ]
       },
-      methods: {
-        toggleClass() {
-          this.className = !this.className;
+      computed: {
+        incompleteTasks() {
+          return this.tasks.filter(task => !task.completed);
         }
       }
     });
