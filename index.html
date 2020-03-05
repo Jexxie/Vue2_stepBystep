@@ -14,8 +14,11 @@
   </head>
   <body>
     <div id="root" class="container">
-      <v-message title="Hello World" body="一个自定义消息组件"></v-message>
-      <v-message title="你好" body="Bla Bla Bla"></v-message>
+      <v-modal @close-modal="showModal = false" v-if="showModal">
+        <p>我是文本</p>
+      </v-modal>
+
+      <button @click="showModal = true">点击</button>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -23,18 +26,15 @@
   </body>
 </html>
 
-<!-- <article class="message">
-  <div class="message-header">
-    <p>Hello World</p>
-    <button class="delete" aria-label="delete"></button>
+<!-- 
+<div class="modal is-active">
+  <div class="modal-background"></div>
+  <div class="modal-content">
+    <div class="box">
+      <p>
+        这是一个自定义modal,这是一个自定义modal,这是一个自定义modal,这是一个自定义modal,
+      </p>
+    </div>
   </div>
-  <div class="message-body">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta
-    nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida
-    purus diam, et dictum <a>felis venenatis</a> efficitur. Aenean ac
-    <em>eleifend lacus</em>, in mollis lectus. Donec sodales, arcu et
-    sollicitudin porttitor, tortor urna tempor ligula, id porttitor mi magna
-    a neque. Donec dui urna, vehicula et sem eget, facilisis sodales sem.
-  </div>
-</article> -->
+  <button class="modal-close is-large" aria-label="close"></button>
+</div> -->
