@@ -14,20 +14,8 @@
   </head>
   <body>
     <div id="root" class="container">
-      <tabs>
-        <tab name="Blog" :selected="true">
-          <h1>这是Blog</h1>
-        </tab>
-        <tab name="Archive">
-          <h1>这是Archive</h1>
-        </tab>
-        <tab name="About Me">
-          <h1>这是About</h1>
-        </tab>
-        <tab name="新Tab">
-          <h1>这是新Tab</h1>
-        </tab>
-      </tabs>
+      <coupon @coupon-was-applied="onCouponApplied"></coupon>
+      <h1 v-if="couponApplied">You used a coupon!</h1>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
